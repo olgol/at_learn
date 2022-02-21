@@ -5,6 +5,7 @@ public class Task21 {
         //
         double a, b, c, D;
         double x1, x2;
+
         a = 6; // a не равно 0
         b = 20;
         c = 12;
