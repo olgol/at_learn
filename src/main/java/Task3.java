@@ -1,3 +1,7 @@
+import org.apache.commons.lang3.time.StopWatch;
+import java.time.Duration;
+import java.time.Instant;
+
 public class Task3 {
 
     public static void main (String[] args) {
@@ -18,6 +22,15 @@ public class Task3 {
         System.out.println(longestPalindromeString("9912333321456"));
         System.out.println(longestPalindromeString("12145445499"));
 
+    }
+
+    public static void stopWatch() throws InterruptedException {
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
+        // выполнение какой-то логики
+        Thread.sleep(1000);
+        stopWatch.stop();
+        System.out.println("Прошло времени, мс: " + stopWatch.getTime());
     }
 
     public static boolean isPalinndrom (String palStr) {
