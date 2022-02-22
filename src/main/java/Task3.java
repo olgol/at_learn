@@ -4,7 +4,7 @@ import java.time.Instant;
 
 public class Task3 {
 
-    public static void main (String[] args) {
+    public static void main (String[] args) throws InterruptedException {
 
         // Является ли палиндромом
         System.out.println("Проверка на палиндромность");
@@ -44,12 +44,19 @@ public class Task3 {
 
     }
 
-        public static String longestPalindromeString(String in) {
+        public static String longestPalindromeString(String in) throws InterruptedException {
+
+            StopWatch stopWatch = new StopWatch();
+
             char[] input = in.toCharArray();
             int longestPalindromeStart = 0;
             int longestPalindromeEnd = 0;
 
             for (int mid = 0; mid < input.length; mid++) {
+
+                stopWatch.reset();
+                stopWatch.start();
+
                 // для случая нечетного палиндрома как 12321, 3 будет серединой
                 int left = mid-1;
                 int right = mid+1;
@@ -83,8 +90,11 @@ public class Task3 {
                     left--;
                     right++;
                 }
-            }
+                          }
             // теперь у нас есть позиции для самого длинного палиндрома
+            Thread.sleep(1000);
+            stopWatch.stop();
+            System.out.println("Прошло времени, мс: " + stopWatch.getTime());
             return in.substring(longestPalindromeStart, longestPalindromeEnd + 1);
         }
 
